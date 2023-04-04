@@ -28,7 +28,7 @@ function reload(data, isTable) {
     tbody.innerHTML = ""
 
     for (let item of data) {
-        if (isTable) {
+        if (isTable == false) {
             table.style.display = ""
             container.style.display = "none"
             tbody.innerHTML += `
@@ -83,10 +83,9 @@ function reload(data, isTable) {
 }
 
 togglers.forEach(btn => {
-    btn.classList.remove('active')
     btn.onclick = () => {
         let isTable = JSON.parse(btn.getAttribute('data-table'))
-
+        togglers.forEach(el => el.classList.remove('active'))
         btn.classList.toggle('active')
         reload(arr, isTable)
     }
@@ -112,9 +111,9 @@ add.onclick = () => {
             <span class="isDone" style="font-weight: 700; font-size: 14px; line-height: 17px; color:red;">${inp5.value}</span>
             
         </div>`
-        container.span.onclick = () => {
-            
-        }
+    container.span.onclick = () => {
+
+    }
 }
 add1.onclick = () => {
     modal1.style.display = "none"
